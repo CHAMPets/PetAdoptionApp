@@ -1,0 +1,57 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+    <title>Recipe Create</title>
+</head>
+<body>
+<form action="/pet" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="type">Type:</label><br>
+    <select id="type" name="type">
+        <option value="DOG">Dog</option>
+        <option value="CAT">Cat</option>
+    </select><br>
+
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="MALE">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="FEMALE">
+    <label for="female">Female</label><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age"><br>
+
+    <label for="bodySize">Body Size:</label><br>
+    <select id="bodySize" name="bodySize">
+        <option value="SMALL">Small</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LARGE">Large</option>
+    </select><br>
+
+    <label for="vaccineHistoryId">Vaccine History ID:</label><br>
+    <input type="number" id="vaccineHistoryId" name="vaccineHistoryId"><br>
+
+    <label for="rescueDate">Rescue Date:</label><br>
+    <input type="date" id="rescueDate" name="rescueDate"><br>
+
+    <label for="imagePath">Image Path:</label><br>
+    <input type="text" id="imagePath" name="imagePath"><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description"></textarea><br>
+
+    <label for="isSterilized">Is Sterilized:</label><br>
+    <input type="checkbox" id="isSterilized" name="isSterilized"><br>
+
+    <label for="applicationLimit">Application Limit:</label><br>
+    <input type="number" id="applicationLimit" name="applicationLimit"><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
