@@ -29,6 +29,7 @@ public class Pet {
             strategy = GenerationType.SEQUENCE,
             generator = "pet_sequence"
     )
+    @Column(nullable = false)
     private Long id;
 
     @Column(columnDefinition = "VARCHAR(20)")

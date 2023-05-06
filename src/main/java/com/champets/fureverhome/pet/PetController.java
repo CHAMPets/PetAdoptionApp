@@ -2,19 +2,20 @@ package com.champets.fureverhome.pet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import com.champets.fureverhome.pet.service.PetService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class PetController {
-    private final com.champets.fureverhome.pet.service.PetService petService;
+    private final PetService petService;
 
     @Autowired
-    public PetController(com.champets.fureverhome.pet.service.PetService petService) {
+    public PetController(PetService petService) {
+
         this.petService = petService;
     }
 

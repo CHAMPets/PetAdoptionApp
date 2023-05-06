@@ -14,7 +14,10 @@ public class PetServiceImpl implements PetService {
     private final PetRepository petRepository;
 
     @Autowired
-    public PetServiceImpl(PetRepository petRepository){this.petRepository = petRepository;}
+    public PetServiceImpl(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
+
     @Override
     public List<Pet> findAllPets() {
         List<Pet> pets = petRepository.findAll();

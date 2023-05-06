@@ -1,9 +1,8 @@
-<html
-        xmlns:th="http://thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="~{layout}">
+<html xmlns:th="http://thymeleaf.org">
+<!--xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--layout:decorate="~{layout}"-->
 <head>
-    <title>Recipe Create</title>
+    <title>Pet Details</title>
 </head>
 <body>
 <form action="/pet" method="post">
@@ -16,7 +15,7 @@
         <option value="CAT">Cat</option>
     </select><br>
 
-    <label for="gender">Gender:</label><br>
+    <label for="genderz">Gender:</label><br>
     <input type="radio" id="male" name="gender" value="MALE">
     <label for="male">Male</label><br>
     <input type="radio" id="female" name="gender" value="FEMALE">
@@ -44,7 +43,7 @@
     <label for="description">Description:</label><br>
     <textarea id="description" name="description"></textarea><br>
 
-    <label for="isSterilized">Is Sterilized:</label><br>
+    <label for="isSterilized">Sterilization Status:</label><br>
     <input type="checkbox" id="isSterilized" name="isSterilized"><br>
 
     <label for="applicationLimit">Application Limit:</label><br>
