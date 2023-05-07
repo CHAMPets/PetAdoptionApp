@@ -30,8 +30,15 @@ public class PetController {
         return "pet-list";
     }
 
-    @PostMapping
-    public void addPet(@RequestBody Pet pet){
-        //petService.addNewPet(pet);
+    @GetMapping("/pets/new")
+    public String createPetForm(Model model){
+        Pet pet = new Pet();
+        model.addAttribute("pet", pet);
+        return "pet-create";
+    }
+    @PostMapping("/pets/new")
+    public String savePet(@ModelAttribute("pet") Pet pet){
+        petService.savePet(pet);
+        return "redirect:/pets";
     }
 }

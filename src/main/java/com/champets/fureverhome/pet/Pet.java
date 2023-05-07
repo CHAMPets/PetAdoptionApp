@@ -54,7 +54,7 @@ public class Pet {
 
     private LocalDate rescueDate;
 
-    @Column(columnDefinition = "VARCHAR(50)")
+    @Column(columnDefinition = "VARCHAR(500)")
     private String imagePath;
 
     @Column(columnDefinition = "VARCHAR(250)")

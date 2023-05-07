@@ -23,4 +23,9 @@ public class PetServiceImpl implements PetService {
         List<Pet> pets = petRepository.findAll();
         return pets.stream().collect(Collectors.toList());
     }
+
+    @Override
+    public Pet savePet(Pet pet) {
+        return petRepository.save(pet);
+    }
 }
