@@ -2,19 +2,20 @@ package com.champets.fureverhome.pet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import com.champets.fureverhome.pet.service.PetService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class PetController {
-    private final com.champets.fureverhome.pet.service.PetService petService;
+    private final PetService petService;
 
     @Autowired
-    public PetController(com.champets.fureverhome.pet.service.PetService petService) {
+    public PetController(PetService petService) {
+
         this.petService = petService;
     }
 
@@ -29,8 +30,16 @@ public class PetController {
         return "pet-list";
     }
 
-    @PostMapping
-    public void addPet(@RequestBody Pet pet){
-        //petService.addNewPet(pet);
+    @GetMapping("/pets/new")
+    public String createPetForm(Model model){
+        Pet pet = new Pet();
+        model.addAttribute("pet", pet);
+        return "pet-create";
+    }
+    @PostMapping("/pets/new")
+    public String savePet(@ModelAttribute("pet") Pet pet){
+
+        petService.savePet(pet);
+        return "redirect:/pets";
     }
 }

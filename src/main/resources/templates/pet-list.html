@@ -1,57 +1,31 @@
-<html
-        xmlns:th="http://thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="~{layout}">
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
 <head>
-    <title>Recipe Create</title>
+    <title>CHAMPets</title>
 </head>
-<body>
-<form action="/pet" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
 
-    <label for="type">Type:</label><br>
-    <select id="type" name="type">
-        <option value="DOG">Dog</option>
-        <option value="CAT">Cat</option>
-    </select><br>
-
-    <label for="gender">Gender:</label><br>
-    <input type="radio" id="male" name="gender" value="MALE">
-    <label for="male">Male</label><br>
-    <input type="radio" id="female" name="gender" value="FEMALE">
-    <label for="female">Female</label><br>
-
-    <label for="age">Age:</label><br>
-    <input type="number" id="age" name="age"><br>
-
-    <label for="bodySize">Body Size:</label><br>
-    <select id="bodySize" name="bodySize">
-        <option value="SMALL">Small</option>
-        <option value="MEDIUM">Medium</option>
-        <option value="LARGE">Large</option>
-    </select><br>
-
-    <label for="vaccineHistoryId">Vaccine History ID:</label><br>
-    <input type="number" id="vaccineHistoryId" name="vaccineHistoryId"><br>
-
-    <label for="rescueDate">Rescue Date:</label><br>
-    <input type="date" id="rescueDate" name="rescueDate"><br>
-
-    <label for="imagePath">Image Path:</label><br>
-    <input type="text" id="imagePath" name="imagePath"><br>
-
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description"></textarea><br>
-
-    <label for="isSterilized">Is Sterilized:</label><br>
-    <input type="checkbox" id="isSterilized" name="isSterilized"><br>
-
-    <label for="applicationLimit">Application Limit:</label><br>
-    <input type="number" id="applicationLimit" name="applicationLimit"><br>
-
-    <input type="submit" value="Submit">
-</form>
-
+    <section layout:fragment="body" class="py-5">
+        <div class="container px-5 my-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bolder">Adopt a Pet</h1>
+                <p class="lead fw-normal text-muted mb-0">Make your home his/her home..</p>
+            </div>
+            <div class="row gx-5">
+                <div th:each="pet: ${pets}" class="col-lg-6">
+                    <div class="position-relative mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-3 mb-3" th:src="${pet.imagePath}" alt="..." style="width: 250px; height: 200px;"/>
+                            <a th:text="${pet.name}"class="h3 fw-bolder text-decoration-none link-dark" href="#!">Project name</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
