@@ -1,5 +1,6 @@
 package com.champets.fureverhome.pet;
 
+import com.champets.fureverhome.application.Application;
 import com.champets.fureverhome.pet.enums.Gender;
 import com.champets.fureverhome.pet.enums.BodySize;
 import com.champets.fureverhome.pet.enums.Type;
@@ -10,6 +11,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +20,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @ToString(includeFieldNames = true)
 @Entity
-@Table(name = "pet") // set the table name explicitly
+@Table(name = "pets") // set the table name explicitly
 public class Pet {
 
     @Id
@@ -50,9 +53,6 @@ public class Pet {
     @Column(name="bodySize")
     private BodySize bodySize;
 
-    @Column(name="vaccineHistoryId")
-    private int vaccineHistoryId;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate rescueDate;
 
@@ -81,4 +81,15 @@ public class Pet {
 
     @CreationTimestamp
     private LocalDate createdDate;
+
+    public boolean getIsSterilized() {
+        return isSterilized;
+    }
+
+    public void setIsSterilized(boolean isSterilized) {
+        this.isSterilized = isSterilized;
+    }
+
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Application> applications = new ArrayList<>();
 }

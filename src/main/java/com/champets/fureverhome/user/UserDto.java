@@ -20,7 +20,7 @@ public class UserDto {
 
     private String lastName;
 
-    private int roleId;
+    private Long roleId;
 
     private LocalDate lastDateModified;
 

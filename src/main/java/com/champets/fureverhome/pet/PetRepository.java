@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PetRepository extends JpaRepository<Pet, Integer> {
+public interface PetRepository extends JpaRepository<Pet, Long> {
 //    @Query("SELECT p FROM Pet p WHERE p.name = ?1")
 //    Optional<Pet> findPetByName(String name);
 }
