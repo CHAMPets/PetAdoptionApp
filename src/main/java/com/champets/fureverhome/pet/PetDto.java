@@ -14,7 +14,6 @@ public class PetDto {
     private String name;
     private Gender gender;
     private BodySize bodySize;
-    private int vaccineHistoryId;
     private LocalDate rescueDate;
     private String imagePath;
     private String description;
