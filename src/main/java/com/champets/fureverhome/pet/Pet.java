@@ -14,11 +14,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString(includeFieldNames = true)
+@Builder
 @Entity
 @Table(name = "pets") // set the table name explicitly
 public class Pet {

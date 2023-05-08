@@ -6,14 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.champets.fureverhome.user.UserMapper.mapToUserDto;
+
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
-
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository;
 
     @Override
     public List<UserDto> findAllUsers() {
@@ -21,21 +19,5 @@ public class UserServiceImpl implements UserService {
         return users.stream().map((user) -> mapToUserDto(user)).collect(Collectors.toList());
     }
 
-    private UserDto mapToUserDto(User user) {
-        UserDto userDto = UserDto.builder()
-                .id(user.getId())
-                .emailAddress(user.getEmailAddress())
-                .password(user.getPassword())
-                .phoneNumber(user.getPhoneNumber())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .roleId(user.getRoleId())
-                .lastDateModified(user.getLastDateModified())
-                .createdBy(user.getCreatedBy())
-                .lastModifiedBy(user.getLastModifiedBy())
-                .createdDate(user.getCreatedDate())
-                .build();
-        return userDto;
-    }
 }
 
