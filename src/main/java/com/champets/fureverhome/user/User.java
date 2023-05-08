@@ -1,6 +1,7 @@
 package com.champets.fureverhome.user;
 
 
+import com.champets.fureverhome.application.Application;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -42,7 +45,7 @@ public class User {
 
     private String lastName;
 
-    private int roleId;
+    private Long roleId;
 
     @UpdateTimestamp
     private LocalDate lastDateModified;
@@ -56,4 +59,10 @@ public class User {
     @CreationTimestamp
     private LocalDate createdDate;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private UserRole userRole;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Application> applications = new ArrayList<>();
 }
