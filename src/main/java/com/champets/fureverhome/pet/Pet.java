@@ -6,6 +6,7 @@ import com.champets.fureverhome.pet.enums.Type;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -52,6 +53,7 @@ public class Pet {
     @Column(name="vaccineHistoryId")
     private int vaccineHistoryId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate rescueDate;
 
     @Column(columnDefinition = "VARCHAR(500)")
@@ -60,8 +62,10 @@ public class Pet {
     @Column(columnDefinition = "VARCHAR(250)")
     private String description;
 
+    @Column(nullable = true)
     private boolean isSterilized;
 
+    @Column(nullable = true)
     private int applicationLimit;
 
     private int applicationCounter;

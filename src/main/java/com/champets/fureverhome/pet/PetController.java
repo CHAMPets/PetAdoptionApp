@@ -38,6 +38,7 @@ public class PetController {
     }
     @PostMapping("/pets/new")
     public String savePet(@ModelAttribute("pet") Pet pet){
+
         petService.savePet(pet);
         return "redirect:/pets";
     }
