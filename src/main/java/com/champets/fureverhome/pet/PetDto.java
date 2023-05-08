@@ -17,9 +17,10 @@ public class PetDto {
     private LocalDate rescueDate;
     private String imagePath;
     private String description;
-    private boolean isSterilized;
-    private int applicationLimit;
-    private int applicationCounter;
+    private Boolean isSterilized;
+
+    private Integer applicationLimit;
+    private Integer applicationCounter;
     private LocalDate lastDateModified;
     private String createdBy;
     private String lastModifiedBy;

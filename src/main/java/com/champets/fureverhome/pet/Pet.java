@@ -1,8 +1,8 @@
 package com.champets.fureverhome.pet;
 
 import com.champets.fureverhome.application.Application;
-import com.champets.fureverhome.pet.enums.Gender;
 import com.champets.fureverhome.pet.enums.BodySize;
+import com.champets.fureverhome.pet.enums.Gender;
 import com.champets.fureverhome.pet.enums.Type;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -40,17 +40,17 @@ public class Pet {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="type")
+    @Column(name = "type")
     private Type type;
-//
+
     @Enumerated(EnumType.STRING)
-    @Column(name="gender")
+    @Column(name = "gender")
     private Gender gender;
-//
-    private int age;
-//
+
+    private Integer age;
+
     @Enumerated(EnumType.STRING)
-    @Column(name="bodySize")
+    @Column(name = "bodySize")
     private BodySize bodySize;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -63,12 +63,12 @@ public class Pet {
     private String description;
 
     @Column(nullable = true)
-    private boolean isSterilized;
+    private Boolean isSterilized;
 
     @Column(nullable = true)
-    private int applicationLimit;
+    private Integer applicationLimit;
 
-    private int applicationCounter;
+    private Integer applicationCounter;
 
     @UpdateTimestamp
     private LocalDate lastDateModified;
@@ -81,15 +81,14 @@ public class Pet {
 
     @CreationTimestamp
     private LocalDate createdDate;
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Application> applications = new ArrayList<>();
 
-    public boolean getIsSterilized() {
+    public Boolean getIsSterilized() {
         return isSterilized;
     }
 
-    public void setIsSterilized(boolean isSterilized) {
+    public void setIsSterilized(Boolean isSterilized) {
         this.isSterilized = isSterilized;
     }
-
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Application> applications = new ArrayList<>();
 }

@@ -1,6 +1,7 @@
 package com.champets.fureverhome.user;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Getter
@@ -26,7 +27,7 @@ public class UserRole {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="role_name")
+    @Column(name = "role_name")
     private RoleName roleName;
 
 }

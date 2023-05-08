@@ -1,44 +1,36 @@
 package com.champets.fureverhome.pet;
 
+import com.champets.fureverhome.pet.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import com.champets.fureverhome.pet.service.PetService;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.List;
 
 @Controller
 public class PetController {
-    private final PetService petService;
-
     @Autowired
-    public PetController(PetService petService) {
-
-        this.petService = petService;
-    }
+    private PetService petService;
 
     @GetMapping("/pets")
-    public String listPets(Model model){
+    public String listPets(Model model) {
         List<Pet> pets = petService.findAllPets();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("pet-list");
-//        modelAndView.addObject("pet", pets);
-//        return modelAndView;
         model.addAttribute("pets", pets);
         return "pet-list";
     }
 
     @GetMapping("/pets/new")
-    public String createPetForm(Model model){
+    public String createPetForm(Model model) {
         Pet pet = new Pet();
         model.addAttribute("pet", pet);
         return "pet-create";
     }
-    @PostMapping("/pets/new")
-    public String savePet(@ModelAttribute("pet") Pet pet){
 
+    @PostMapping("/pets/new")
+    public String savePet(@ModelAttribute("pet") Pet pet) {
         petService.savePet(pet);
         return "redirect:/pets";
     }

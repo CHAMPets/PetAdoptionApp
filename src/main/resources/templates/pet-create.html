@@ -1,6 +1,6 @@
-<html xmlns:th="http://thymeleaf.org"
+<html layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      xmlns:th="http://thymeleaf.org">
 
 <head>
     <title>Home</title>
@@ -8,44 +8,44 @@
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
 
-    <section layout:fragment="body" class="py-5">
+    <section class="py-5" layout:fragment="body">
         <div class="container px-5 my-5">
             <div class="text-center mb-5">
                 <h1 class="fw-bolder">Add a Pet</h1>
             </div>
             <div class="row gx-5">
-                <form role="form" th:action="@{/pets/new}" th:object="${pet}" method="post">
-                    <div class = "form-group">
+                <form method="post" role="form" th:action="@{/pets/new}" th:object="${pet}">
+                    <div class="form-group">
                         <label for="name">Name:</label>
                         <input
-                                type="text"
                                 class="form-control"
                                 id="name"
                                 name="name"
-                                th:field="*{name}"
                                 placeholder="Name"
-                                required><br>
+                                required
+                                th:field="*{name}"
+                                type="text"><br>
                     </div>
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="gender">Gender:</label>
                         <select
                                 id="gender"
                                 name="gender"
-                                th:field="*{gender}"
-                                required>
+                                required
+                                th:field="*{gender}">
                             <option value="">-- Please select --</option>
                             <option value="MALE">Male</option>
                             <option value="FEMALE">Female</option>
                         </select><br>
                     </div>
 
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="type">Type:</label>
                         <select
                                 id="type"
                                 name="type"
-                                th:field="*{type}"
-                                required>
+                                required
+                                th:field="*{type}">
                             <option value="">-- Please select --</option>
                             <option value="CAT">Cat</option>
                             <option value="DOG">Dog</option>
@@ -55,22 +55,22 @@
                     <div class="form-group">
                         <label for="age">Age:</label>
                         <input
-                                type="number"
+                                class="form-control"
                                 id="age"
                                 name="age"
-                                class="form-control"
-                                th:field="*{age}"
                                 placeholder="Age"
-                                required><br>
+                                required
+                                th:field="*{age}"
+                                type="number"><br>
                     </div>
 
 
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="bodySize">Body Size:</label>
                         <select
                                 id="bodySize"
                                 name="bodySize"
-                                th:field="*{bodySize}" required>
+                                required th:field="*{bodySize}">
                             <option value="">-- Please select --</option>
                             <option value="SMALL">Small</option>
                             <option value="MEDIUM">Medium</option>
@@ -78,73 +78,73 @@
                         </select><br>
                     </div>
 
-    <!--                <div class = "form-group">-->
-    <!--                    <label for="vaccineHistoryId">Vaccine History ID:</label>-->
-    <!--                    <input-->
-    <!--                            type="number"-->
-    <!--                            class="form-control"-->
-    <!--                            id="vaccineHistoryId"-->
-    <!--                            name="vaccineHistoryId"-->
-    <!--                            th:field="*{vaccineHistoryId}"-->
-    <!--                            placeholder="Vaccine History ID"-->
-    <!--                            required><br>-->
-    <!--                </div>-->
+                    <!--                <div class = "form-group">-->
+                    <!--                    <label for="vaccineHistoryId">Vaccine History ID:</label>-->
+                    <!--                    <input-->
+                    <!--                            type="number"-->
+                    <!--                            class="form-control"-->
+                    <!--                            id="vaccineHistoryId"-->
+                    <!--                            name="vaccineHistoryId"-->
+                    <!--                            th:field="*{vaccineHistoryId}"-->
+                    <!--                            placeholder="Vaccine History ID"-->
+                    <!--                            required><br>-->
+                    <!--                </div>-->
 
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="rescueDate">Rescue Date:</label>
                         <input
-                                type="date"
                                 class="form-control"
                                 id="rescueDate"
                                 name="rescueDate"
-                                th:field="*{rescueDate}"
                                 placeholder="Rescue Date"
-                                required><br>
+                                required
+                                th:field="*{rescueDate}"
+                                type="date"><br>
                     </div>
 
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="imagePath">Image Path:</label>
                         <input
-                                type="text"
                                 class="form-control"
                                 id="imagePath"
                                 name="imagePath"
-                                th:field="*{imagePath}"
                                 placeholder="Image Path"
-                                required><br>
+                                required
+                                th:field="*{imagePath}"
+                                type="text"><br>
                     </div>
 
-                    <div class = "form-group">
+                    <div class="form-group">
                         <label for="description">Description:</label>
                         <textarea
+                                class="form-control"
                                 id="description"
                                 name="description"
-                                class="form-control"
-                                th:field="*{description}"
                                 placeholder="Description"
-                                required>
+                                required
+                                th:field="*{description}">
                   </textarea><br>
                     </div>
-                    <div class = "form-group">
-                      <label for="isSterilized">Is Sterilized:</label>
-                      <input
-                              type="checkbox"
-                              id="isSterilized"
-                              name="isSterilized"
-                              th:field="*{isSterilized}">
-                      <br>
+                    <div class="form-group">
+                        <label for="isSterilized">Is Sterilized:</label>
+                        <input
+                                id="isSterilized"
+                                name="isSterilized"
+                                th:field="*{isSterilized}"
+                                type="checkbox">
+                        <br>
                     </div>
-    <!--                <div class = "form-group">-->
-    <!--                    <label for="applicationLimit">Application Counter:</label>-->
-    <!--                    <input-->
-    <!--                            type="number"-->
-    <!--                            id="applicationLimit"-->
-    <!--                            name="applicationLimit"-->
-    <!--                            class="form-control"-->
-    <!--                            th:field="*{applicationCounter}"-->
-    <!--                            placeholder="Application Counter"-->
-    <!--                            required><br>-->
-    <!--                </div>-->
+                    <!--                <div class = "form-group">-->
+                    <!--                    <label for="applicationLimit">Application Counter:</label>-->
+                    <!--                    <input-->
+                    <!--                            type="number"-->
+                    <!--                            id="applicationLimit"-->
+                    <!--                            name="applicationLimit"-->
+                    <!--                            class="form-control"-->
+                    <!--                            th:field="*{applicationCounter}"-->
+                    <!--                            placeholder="Application Counter"-->
+                    <!--                            required><br>-->
+                    <!--                </div>-->
                     <button type="submit">Add Pet</button>
                 </form>
             </div>
