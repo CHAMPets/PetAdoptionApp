@@ -9,7 +9,6 @@ public class UserMapper {
                 .phoneNumber(user.getPhoneNumber())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
-                .roleId(user.getRoleId())
                 .lastDateModified(user.getLastDateModified())
                 .createdBy(user.getCreatedBy())
                 .lastModifiedBy(user.getLastModifiedBy())

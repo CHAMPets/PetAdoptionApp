@@ -44,8 +44,6 @@ public class User {
 
     private String lastName;
 
-    private Long roleId;
-
     @UpdateTimestamp
     private LocalDate lastDateModified;
 
