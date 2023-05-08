@@ -30,13 +30,13 @@ public class PetController {
         return "pet-list";
     }
 
-    @GetMapping("/pets/new")
+    @GetMapping("pets/new")
     public String createPetForm(Model model){
         Pet pet = new Pet();
         model.addAttribute("pet", pet);
         return "pet-create";
     }
-    @PostMapping("/pets/new")
+    @PostMapping("pets/new")
     public String savePet(@ModelAttribute("pet") Pet pet){
 
         petService.savePet(pet);
