@@ -2,7 +2,10 @@ package com.champets.fureverhome.application;
 
 import com.champets.fureverhome.pet.Pet;
 import com.champets.fureverhome.user.User;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
