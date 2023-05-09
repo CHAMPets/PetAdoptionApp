@@ -1,13 +1,13 @@
 package com.champets.fureverhome.user;
 
+
 import lombok.*;
+
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString(includeFieldNames = true)
+@AllArgsConstructor
 @Entity
 @Table(name = "user_roles")
 public class UserRole {
