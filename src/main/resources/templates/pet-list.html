@@ -10,16 +10,17 @@
 
     <section layout:fragment="body" class="py-5">
         <div class="container px-5 my-5">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5">Kob
                 <h1 class="fw-bolder">Adopt a Pet</h1>
                 <p class="lead fw-normal text-muted mb-0">Make your home his/her home..</p>
             </div>
             <div class="row gx-5">
-                <div th:each="pet, petIndex : ${pets}" class="col-lg-4">
-                    <div class="position-relative mb-5">
+                <div th:each="pet, petIndex : ${pets}" class="col-lg-4" mb-2>
+                    <div class="position-relative mb-3">
                         <div class="text-center">
                             <img class="img-fluid rounded-3 mb-3" th:src="${pet.imagePath}" alt="..." style="width: 250px; height: 200px;"/>
                             <div class="pet-name"><a th:text="${pet.name}"class="h3 fw-bolder text-decoration-none link-dark" href="#!">Project name</a></div>
+                            <a class="btn btn-primary" th:href="@{/pets/{petId}/edit(petId=${pet.id})}"> Edit </a>
                         </div>
                     </div>
                 </div>
