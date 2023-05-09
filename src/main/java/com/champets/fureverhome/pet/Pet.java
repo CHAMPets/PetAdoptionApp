@@ -42,13 +42,13 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     @Column(name="type")
     private Type type;
-//
+
     @Enumerated(EnumType.STRING)
     @Column(name="gender")
     private Gender gender;
-//
+
     private int age;
-//
+
     @Enumerated(EnumType.STRING)
     @Column(name="bodySize")
     private BodySize bodySize;

@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
                 .phoneNumber(user.getPhoneNumber())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
-                .roleId(user.getRoleId())
+                .roleId(user.getUserRole().getId())
                 .lastDateModified(user.getLastDateModified())
                 .createdBy(user.getCreatedBy())
                 .lastModifiedBy(user.getLastModifiedBy())

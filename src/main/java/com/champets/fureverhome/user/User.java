@@ -45,8 +45,6 @@ public class User {
 
     private String lastName;
 
-    private Long roleId;
-
     @UpdateTimestamp
     private LocalDate lastDateModified;
 
@@ -60,7 +58,7 @@ public class User {
     private LocalDate createdDate;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "roleId", nullable = false, insertable = false, updatable = false)
     private UserRole userRole;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

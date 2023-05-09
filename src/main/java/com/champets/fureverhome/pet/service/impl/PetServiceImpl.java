@@ -6,8 +6,6 @@ import com.champets.fureverhome.pet.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,4 +28,16 @@ public class PetServiceImpl implements PetService {
     public Pet savePet(Pet pet) {
         return petRepository.save(pet);
     }
+
+    @Override
+    public Pet findPetById(long petId) {
+        Pet pet = petRepository.findById(petId).get();
+        return pet;
+    }
+
+    @Override
+    public void updatePet(Pet pet) {
+         petRepository.save(pet);
+    }
+
 }
